@@ -1,0 +1,21 @@
+{
+  "fonte": "ITU: Silva et al. (2004), apud artigo RSD (Chimoio); formula de Buffington et al. CO2 e amonia: literatura citada no relatorio; faixas plausiveis e janela de confirmacao: decisao da equipe.",
+  "itu_por_semana": {
+    "1": { "min": 72.4, "max": 80.0 },
+    "2": { "min": 68.4, "max": 76.0 },
+    "3": { "min": 64.5, "max": 72.0 },
+    "4": { "min": 60.5, "max": 68.0 },
+    "5": { "min": 56.6, "max": 64.0 },
+    "6": { "min": 56.6, "max": 60.0 },
+    "7": { "min": 56.6, "max": 60.0 }
+  },
+  "co2_ppm_max": 3000,
+  "amonia_ppm_max": 20,
+  "janela_confirmacao_min": 15,
+  "faixas_plausiveis": {
+    "temperatura_c": { "min": 5, "max": 50 },
+    "umidade_pct": { "min": 0, "max": 100 },
+    "co2_ppm": { "min": 300, "max": 10000 },
+    "amonia_ppm": { "min": 0, "max": 100 }
+  }
+}
