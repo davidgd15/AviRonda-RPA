@@ -1,0 +1,13 @@
+# Ambiente virtual e caches do Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Credenciais e configurações locais (nunca subir)
+.env
+
+# Arquivos do sistema e do editor
+desktop.ini
+.DS_Store
+.vscode/

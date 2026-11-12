@@ -1,0 +1,342 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="FxpTdviOuXwyfuOrsZkP">
+    <mxGraphModel dx="2594" dy="1673" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lane_source" parent="1" style="swimlane;horizontal=0;startSize=42;collapsible=0;rounded=0;html=1;whiteSpace=wrap;fillColor=#ffffff;swimlaneFillColor=#f8fafc;strokeColor=#64748b;strokeWidth=2;fontStyle=1;fontSize=18;swimlaneFillColor=#f8fafc;" value="Carrinho / Fonte de dados" vertex="1">
+          <mxGeometry height="230" width="3470" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="start_readings" parent="lane_source" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1;" value="Novo arquivo de&lt;br&gt;leituras" vertex="1">
+          <mxGeometry height="90" width="110" x="60" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_python" parent="1" style="swimlane;horizontal=0;startSize=42;collapsible=0;rounded=0;html=1;whiteSpace=wrap;fillColor=#ffffff;swimlaneFillColor=#f8fafc;strokeColor=#64748b;strokeWidth=2;fontStyle=1;fontSize=18;swimlaneFillColor=#ffffff;" value="Robô Python" vertex="1">
+          <mxGeometry height="750" width="3470" x="40" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="python_end" parent="lane_python" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=4;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;" value="Log final" vertex="1">
+          <mxGeometry height="100" width="116.67" x="3337.5" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="file_valid" parent="lane_python" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Arquivo existe&lt;br&gt;e é válido?" vertex="1">
+          <mxGeometry height="130" width="130" x="160" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="file_exception" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Registrar erro e avisar;&lt;br&gt;mover inválido para data/erros/" vertex="1">
+          <mxGeometry height="90" width="210" x="450" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="end_file_error" parent="lane_python" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=4;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;" value="Fim&lt;br&gt;(arquivo inválido)" vertex="1">
+          <mxGeometry height="105" width="105" x="710" y="112.5" as="geometry" />
+        </mxCell>
+        <mxCell id="read" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Ler leituras" vertex="1">
+          <mxGeometry height="80" width="180" x="450" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="each" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Para cada leitura" vertex="1">
+          <mxGeometry height="80" width="180" x="710" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="sensor_ok" parent="lane_python" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Sensor enviou&lt;br&gt;leitura?" vertex="1">
+          <mxGeometry height="125" width="125" x="972.5" y="207.5" as="geometry" />
+        </mxCell>
+        <mxCell id="sensor_fail" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Registrar falha de&lt;br&gt;sensor e avisar" vertex="1">
+          <mxGeometry height="85" width="190" x="940" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="reading_valid" parent="lane_python" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Leitura plausível&lt;br&gt;e não duplicada?" vertex="1">
+          <mxGeometry height="125" width="140" x="1182.5" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="discard" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Descartar leitura&lt;br&gt;e registrar no log" vertex="1">
+          <mxGeometry height="85" width="190" x="1172.5" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="calculate" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Calcular ITU e buscar&lt;br&gt;limites do lote" vertex="1">
+          <mxGeometry height="80" width="205" x="1412.5" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="above_limit" parent="lane_python" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Acima do&lt;br&gt;limite?" vertex="1">
+          <mxGeometry height="125" width="125" x="1658" y="207.5" as="geometry" />
+        </mxCell>
+        <mxCell id="normal" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Registrar leitura&lt;br&gt;normal" vertex="1">
+          <mxGeometry height="80" width="185" x="1832.5" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="find_confirm" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Localizar próxima leitura&lt;br&gt;do mesmo ponto" vertex="1">
+          <mxGeometry height="80" width="205" x="1832.5" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="confirmed" parent="lane_python" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Confirmação também&lt;br&gt;acima do limite?" vertex="1">
+          <mxGeometry height="125" width="150" x="2067.5" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="critical" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Marcar zona crítica&lt;br&gt;e gerar alerta" vertex="1">
+          <mxGeometry height="85" width="190" x="2237.5" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="attention" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Marcar zona em&lt;br&gt;observação; aguardar" vertex="1">
+          <mxGeometry height="85" width="205" x="2237.5" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Lgr3Zxg8vUMPY1NRB9n4-2" edge="1" parent="lane_python" source="has_next" style="edgeStyle=none;curved=1;rounded=0;curveGeometry=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;" target="consolidate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="has_next" parent="lane_python" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Há próxima&lt;br&gt;leitura?" vertex="1">
+          <mxGeometry height="125" width="125" x="2520" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="consolidate" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Consolidar por zona:&lt;br&gt;normal / observação / crítica" vertex="1">
+          <mxGeometry height="80" width="220" x="2787.5" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="outputs" parent="lane_python" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Gerar alertas.json,&lt;br&gt;leituras_validas.csv,&lt;br&gt;relatório e dashboard HTML" vertex="1">
+          <mxGeometry height="100" width="245" x="3067.5" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" edge="1" parent="lane_python" source="file_valid" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="file_exception" value="Não">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="345" />
+              <mxPoint x="370" y="165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s3" edge="1" parent="lane_python" source="file_exception" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="end_file_error" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" edge="1" parent="lane_python" source="file_valid" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="read" value="Sim">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s5" edge="1" parent="lane_python" source="read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="each" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" edge="1" parent="lane_python" source="each" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="sensor_ok" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="359.99999999999955" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s7" edge="1" parent="lane_python" source="sensor_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="sensor_fail" value="Não">
+          <mxGeometry relative="1" x="-0.0992" as="geometry" />
+        </mxCell>
+        <mxCell id="s8" edge="1" parent="lane_python" source="sensor_fail" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="has_next" value="Continuar loop">
+          <mxGeometry relative="1" x="0.2317" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1035" y="590" />
+              <mxPoint x="2582.5" y="590" />
+            </Array>
+            <mxPoint x="2575" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s9" edge="1" parent="lane_python" source="sensor_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="reading_valid" value="Sim">
+          <mxGeometry relative="1" x="0.0224" as="geometry">
+            <Array as="points">
+              <mxPoint x="1097.5" y="267.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s10" edge="1" parent="lane_python" source="reading_valid" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="discard" value="Não">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1252.5" y="360" />
+              <mxPoint x="1252.5" y="465" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s11" edge="1" parent="lane_python" source="discard" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="has_next" value="Continuar loop">
+          <mxGeometry relative="1" x="0.0854" as="geometry">
+            <Array as="points">
+              <mxPoint x="2492.5" y="522.5" />
+              <mxPoint x="2492.5" y="362.5" />
+            </Array>
+            <mxPoint x="2544.9999999999995" y="315" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s12" edge="1" parent="lane_python" source="reading_valid" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="calculate" value="Sim">
+          <mxGeometry relative="1" x="-0.1717" as="geometry">
+            <Array as="points">
+              <mxPoint x="1322.5" y="270" />
+              <mxPoint x="1392.5" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s13" edge="1" parent="lane_python" source="calculate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="above_limit" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s14" edge="1" parent="lane_python" source="above_limit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#6F0000;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;fillColor=#a20025;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="normal" value="Não">
+          <mxGeometry relative="1" x="0.002" as="geometry">
+            <Array as="points">
+              <mxPoint x="1720.5" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s15" edge="1" parent="lane_python" source="normal" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="has_next" value="Próxima leitura">
+          <mxGeometry relative="1" x="-0.0784" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s16" edge="1" parent="lane_python" source="above_limit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="find_confirm" value="Sim">
+          <mxGeometry relative="1" x="0.0607" as="geometry">
+            <Array as="points">
+              <mxPoint x="1720.5" y="370" />
+              <mxPoint x="1935" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s17" edge="1" parent="lane_python" source="find_confirm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="confirmed" value="">
+          <mxGeometry relative="1" x="-0.5892" as="geometry">
+            <Array as="points">
+              <mxPoint x="1950" y="367.5" />
+            </Array>
+            <mxPoint x="2062.4999999999995" y="282.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s18" edge="1" parent="lane_python" source="confirmed" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="critical" value="Sim">
+          <mxGeometry relative="1" x="0.2776" as="geometry">
+            <mxPoint x="2280" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s19" edge="1" parent="lane_python" source="confirmed" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="attention" value="Não: aguardar confirmação">
+          <mxGeometry relative="1" x="-0.8095" y="-108" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="2247.5" y="452.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s20" edge="1" parent="lane_python" source="critical" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="has_next" value="Próxima leitura">
+          <mxGeometry relative="1" x="-0.3483" y="13" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s21" edge="1" parent="lane_python" source="attention" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="has_next" value="Próxima leitura">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s22" edge="1" parent="lane_python" source="has_next" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" value="Sim: continuar loop">
+          <mxGeometry relative="1" x="0.0384" as="geometry">
+            <Array as="points">
+              <mxPoint x="2582.5" y="650" />
+              <mxPoint x="800" y="650" />
+            </Array>
+            <mxPoint x="800" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s23" edge="1" parent="lane_python" source="has_next" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;strokeWidth=2;strokeColor=none;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="consolidate" value="Não: encerrar loop">
+          <mxGeometry relative="1" x="-0.0877" y="22" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2665" y="362" />
+              <mxPoint x="2690" y="362" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s24" edge="1" parent="lane_python" source="consolidate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="outputs" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s25" edge="1" parent="lane_python" source="outputs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="python_end" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3248.33" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lane_power" parent="1" style="swimlane;horizontal=0;startSize=42;collapsible=0;rounded=0;html=1;whiteSpace=wrap;fillColor=#ffffff;swimlaneFillColor=#f8fafc;strokeColor=#64748b;strokeWidth=2;fontStyle=1;fontSize=18;swimlaneFillColor=#f8fafc;" value="Power Automate / Outlook" vertex="1">
+          <mxGeometry height="510" width="3470" x="40" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="p7" edge="1" parent="lane_power" source="email_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="retry_gate" value="Não">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2532" y="210" />
+              <mxPoint x="2532" y="225" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p11" edge="1" parent="lane_power" source="email_fail" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="email_fail_end" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="email_fail_end" parent="lane_power" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=4;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;" value="Fim: falha&lt;br&gt;registrada" vertex="1">
+          <mxGeometry height="100" width="110" x="3250" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="email_fail" parent="lane_power" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Registrar falha&lt;br&gt;do envio" vertex="1">
+          <mxGeometry height="80" width="185" x="2937.5" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="retry" parent="lane_power" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Registrar tentativa&lt;br&gt;e tentar novamente" vertex="1">
+          <mxGeometry height="80" width="200" x="2930" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="p10" edge="1" parent="lane_power" source="retry_gate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="email_fail" value="Não: limite atingido">
+          <mxGeometry relative="1" x="0.0355" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2615" y="350" />
+              <mxPoint x="2615" y="280" />
+              <mxPoint x="2880" y="280" />
+              <mxPoint x="2880" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p9" edge="1" parent="lane_power" source="retry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="pa_send" value="Reenviar; máximo 3 tentativas">
+          <mxGeometry relative="1" x="-0.1975" y="30" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2800" y="430" />
+              <mxPoint x="2330" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p8" edge="1" parent="lane_power" source="retry_gate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="retry" value="Sim: tentar novamente">
+          <mxGeometry relative="1" x="0.1385" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="retry_gate" parent="lane_power" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Tentativas&lt;br&gt;&lt; 3?" vertex="1">
+          <mxGeometry height="120" width="150" x="2455" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="email_ok" parent="lane_power" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Envio&lt;br&gt;ok?" vertex="1">
+          <mxGeometry height="120" width="120" x="2470" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" edge="1" parent="lane_power" source="email_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="email_success" value="Sim">
+          <mxGeometry relative="1" x="0.0032" as="geometry">
+            <Array as="points">
+              <mxPoint x="2590" y="147.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="email_success" parent="lane_power" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=4;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;" value="Fim: e-mail&lt;br&gt;enviado" vertex="1">
+          <mxGeometry height="100" width="110" x="2720" y="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" edge="1" parent="lane_power" source="pa_send" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="email_ok" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pa_send" parent="lane_power" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Enviar e-mail&lt;br&gt;Outlook" vertex="1">
+          <mxGeometry height="80" width="180" x="2240" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" edge="1" parent="lane_power" source="has_alerts" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#2e8b57;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="pa_send" value="Sim">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2185" y="153" />
+              <mxPoint x="2210" y="153" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="has_alerts" parent="lane_power" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;spacing=4;" value="Há&lt;br&gt;alertas?" vertex="1">
+          <mxGeometry height="125" width="125" x="1980" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" edge="1" parent="lane_power" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="no_alerts_end" value="Não">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2042.5" y="220" />
+            </Array>
+            <mxPoint x="2040" y="220" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="no_alerts_end" parent="lane_power" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=4;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;" value="Fim (sem&lt;br&gt;envio)" vertex="1">
+          <mxGeometry height="95" width="105" x="1990" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" edge="1" parent="lane_power" source="pa_read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="has_alerts" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pa_read" parent="lane_power" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;spacing=8;" value="Ler alertas.json" vertex="1">
+          <mxGeometry height="80" width="175" x="1660" y="112.5" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" edge="1" parent="lane_power" source="pa_start" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;" target="pa_read" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pa_start" parent="lane_power" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1;" value="alertas.json&lt;br&gt;disponível" vertex="1">
+          <mxGeometry height="90" width="110" x="1490" y="107.5" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" edge="1" parent="1" source="outputs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeWidth=2;strokeColor=#7c3aed;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;dashed=1;dashPattern=8 6;endArrow=open;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="pa_start" value="Integração por arquivo estruturado: alertas.json">
+          <mxGeometry relative="1" x="0.0939" as="geometry">
+            <Array as="points">
+              <mxPoint x="3242.5" y="1000" />
+              <mxPoint x="1585" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s1" edge="1" parent="1" source="start_readings" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#475569;fontSize=15;fontStyle=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="file_valid" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
