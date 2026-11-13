@@ -1,5 +1,5 @@
 {
-  "fonte": "Temperatura e CO2: parametros iniciais do pipeline Big Data do grupo (notebook 03_ouro.py). Amonia: literatura (20 ppm tese UFV; 25 ppm Cobb), decisao da equipe. Faixas plausiveis e janela de confirmacao: decisao da equipe.",
+  "fonte": "Temperatura e CO2: parametros iniciais do pipeline Big Data do grupo (notebook 03_ouro.py). Amonia: literatura (20 ppm tese UFV; 25 ppm Cobb), usada somente quando houver sensor. Faixas plausiveis: iguais as regras R2 e R3 da Prata do grupo. Janela de confirmacao: decisao da equipe (ronda a cada 2 h).",
   "temperatura": {
     "alvo_inicial_c": 32.0,
     "queda_por_dia_c": 0.2,
@@ -9,11 +9,10 @@
   },
   "co2_ppm": { "atencao": 2500, "critico": 3000 },
   "amonia_ppm": { "atencao": 20, "critico": 25 },
-  "janela_confirmacao_min": 15,
+  "janela_confirmacao_min": 150,
   "faixas_plausiveis": {
-    "temperatura_c": { "min": 5, "max": 50 },
+    "temperatura_c": { "min": -10, "max": 50 },
     "umidade_pct": { "min": 0, "max": 100 },
-    "co2_ppm": { "min": 300, "max": 10000 },
-    "amonia_ppm": { "min": 0, "max": 100 }
+    "co2_ppm": { "min": 300, "max": 10000 }
   }
 }
