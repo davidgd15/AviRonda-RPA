@@ -7,6 +7,7 @@ Cada arquivo processado com sucesso vai para data/processados/; os que derem
 erro vao para data/erros/. Um arquivo com problema nunca interrompe os demais.
 """
 import logging
+import os
 import shutil
 import sys
 from datetime import datetime
@@ -15,6 +16,7 @@ from pathlib import Path
 from src.config import RAIZ, carregar_limites
 from src.log import configurar_log
 from src.robo import ArquivoInvalido, processar_arquivo
+from src.saidas import gravar_saidas
 
 log = logging.getLogger("avironda")
 
@@ -68,7 +70,9 @@ def executar(pasta_entrada=None, pasta_processados=None, pasta_erros=None, cfg=N
 def main():
     configurar_log()
     saida = executar()
-    return 0 if not saida["erros"] else 2
+    gravacao = gravar_saidas(saida, os.environ.get("AVIRONDA_PASTA_SAIDA"))
+    falhou = bool(saida["erros"]) or bool(gravacao and gravacao["falhas"])
+    return 2 if falhou else 0
 
 
 if __name__ == "__main__":

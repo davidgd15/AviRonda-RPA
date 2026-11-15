@@ -206,13 +206,27 @@ def processar_leituras(brutas, cfg):
         "observacoes": len(observacoes),
         "falhas_sensor": len(falhas_sensor),
     }
+    
+    leituras_saida = [
+        {
+            "galpao_id": r["galpao_id"], "zona": r["zona"], "ts": r["ts"],
+            "lote_id": r.get("lote_id"), "idade_lote_dias": r["idade_lote_dias"],
+            "temp_c": r["temp_c"], "umid_pct": r.get("umid_pct"), "co2_ppm": r["co2_ppm"],
+            "status": r["_class"]["status"], "temp_alvo_c": r["_class"]["temp_alvo_c"],
+            "desvio_c": r["_class"]["desvio_c"],
+        }
+        for r in sorted(validas, key=lambda x: x["_ts"])
+    ]
+    data_referencia = leituras_saida[0]["ts"][:10] if leituras_saida else None
     return {
         "resumo": resumo,
+        "data_referencia": data_referencia,
         "alertas": alertas,
         "observacoes": observacoes,
         "falhas_sensor": falhas_sensor,
         "descartadas": descartadas,
         "zonas": zonas,
+        "leituras": leituras_saida,
     }
 
 

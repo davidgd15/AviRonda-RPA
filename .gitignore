@@ -18,3 +18,5 @@ data/entrada/
 data/processados/
 data/erros/
 logs/*.log
+
+saida/
