@@ -11,3 +11,10 @@ __pycache__/
 desktop.ini
 .DS_Store
 .vscode/
+
+
+# Pastas de trabalho do robo (geradas a cada execucao)
+data/entrada/
+data/processados/
+data/erros/
+logs/*.log

@@ -33,7 +33,7 @@ def ler_leituras(caminho):
     """
     caminho = Path(caminho)
     if not caminho.is_file():
-        raise ArquivoInvalido(f"arquivo nao encontrado: {caminho}")
+        raise ArquivoInvalido(f"arquivo nao encontrado: {caminho.name}")
 
     leituras, quebradas = [], 0
     try:
@@ -53,10 +53,10 @@ def ler_leituras(caminho):
                 obj["_linha"] = numero
                 leituras.append(obj)
     except (OSError, UnicodeDecodeError) as erro:
-        raise ArquivoInvalido(f"arquivo ilegivel: {caminho} ({erro})") from erro
+        raise ArquivoInvalido(f"arquivo ilegivel: {caminho.name} ({type(erro).__name__})") from erro
 
     if not leituras:
-        raise ArquivoInvalido(f"arquivo vazio ou sem JSON valido: {caminho}")
+        raise ArquivoInvalido(f"arquivo vazio ou sem JSON valido: {caminho.name}")
     return leituras, quebradas
 
 
@@ -219,10 +219,10 @@ def processar_leituras(brutas, cfg):
 def processar_arquivo(caminho, cfg=None):
     """Executa o processo inteiro para um arquivo. Levanta ArquivoInvalido se for o caso."""
     cfg = cfg or carregar_limites()
-    log.info("processando %s", caminho)
+    log.info("processando %s", Path(caminho).name)
     brutas, quebradas = ler_leituras(caminho)
     resultado = processar_leituras(brutas, cfg)
-    resultado["arquivo"] = str(caminho)
+    resultado["arquivo"] = Path(caminho).name
     resultado["resumo"]["linhas_json_invalido"] = quebradas
     resultado["resumo"]["linhas_lidas"] = len(brutas) + quebradas
     log.info("resumo: %s", resultado["resumo"])
