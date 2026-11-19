@@ -1,0 +1,17 @@
+2026-11-17 19:21:18 | INFO    | inicio da execucao: 2 arquivo(s) novo(s) em entrada
+2026-11-17 19:21:18 | INFO    | processando carrinho_G-SDE-01_2026-11-04.json
+2026-11-17 19:21:18 | WARNING | leitura descartada (sensor_parado): galpao=G-SDE-01 zona=1 ts=2026-11-04T00:02:08
+2026-11-17 19:21:18 | WARNING | leitura descartada (sensor_parado): galpao=G-SDE-01 zona=3 ts=2026-11-04T00:06:09
+2026-11-17 19:21:18 | WARNING | leitura descartada (duplicada): galpao=G-SDE-01 zona=5 ts=2026-11-04T18:17:12
+2026-11-17 19:21:18 | INFO    | resumo: {'descartes': {'sensor_parado': 2, 'duplicada': 1}, 'leituras_validas': 70, 'ok': 43, 'atencao': 10, 'critico': 17, 'alertas': 6, 'observacoes': 0, 'falhas_sensor': 2, 'linhas_json_invalido': 0, 'linhas_lidas': 73}
+2026-11-17 19:21:18 | INFO    | processando carrinho_G-SDE-01_2026-11-06.json
+2026-11-17 19:21:18 | WARNING | leitura descartada (duplicada): galpao=G-SDE-01 zona=5 ts=2026-11-06T02:18:18
+2026-11-17 19:21:18 | WARNING | leitura descartada (sensor_parado): galpao=G-SDE-01 zona=5 ts=2026-11-06T04:17:04
+2026-11-17 19:21:18 | WARNING | leitura descartada (sensor_parado): galpao=G-SDE-01 zona=1 ts=2026-11-06T12:06:26
+2026-11-17 19:21:18 | WARNING | leitura descartada (sensor_parado): galpao=G-SDE-01 zona=1 ts=2026-11-06T22:06:08
+2026-11-17 19:21:18 | INFO    | observacao: galpao=G-SDE-01 zona=4 ts=2026-11-06T04:15:40
+2026-11-17 19:21:18 | INFO    | resumo: {'descartes': {'duplicada': 1, 'sensor_parado': 3}, 'leituras_validas': 69, 'ok': 42, 'atencao': 13, 'critico': 14, 'alertas': 6, 'observacoes': 1, 'falhas_sensor': 3, 'linhas_json_invalido': 0, 'linhas_lidas': 73}
+2026-11-17 19:21:18 | INFO    | fim da execucao: 2 processado(s), 0 com erro
+2026-11-17 19:21:18 | INFO    | alertas gravados: 4 aviso(s)
+2026-11-17 19:21:19 | INFO    | csv atualizado: 139 leitura(s) no total
+2026-11-17 19:21:19 | INFO    | saidas: 3 gravada(s), 0 com falha
