@@ -97,7 +97,7 @@ As amostras são simuladas e este repositório não deve conter credenciais ou d
 ## Escopo e links
 
 - Repositório público deste projeto: [davidgd15/AviRonda-RPA](https://github.com/davidgd15/AviRonda-RPA).
-- Vídeo demonstrativo: link ainda pendente de gravação/publicação.
+- Vídeo demonstrativo:  https://youtu.be/E-puWl39bo8.
 - Integração com MVP/Databricks: fora do escopo desta entrega RPA, conforme decisão da equipe. O projeto Big Data é relacionado, mas separado: [Fernando-Popolili/BigData-GS](https://github.com/Fernando-Popolili/BigData-GS).
 
 ## Relatório
